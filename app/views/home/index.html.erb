@@ -1,2 +1,67 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<%=render 'layouts/partials/menu' %>
+
+<h1>Credits</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Value</th>
+            <th>Approval</th>
+            <th>User</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @credits.each do |credit| %>
+            <tr>
+                <td>
+                    <%= credit.id %>
+                </td>
+                <td>
+                    <%= format_currency(credit.value) %>
+                </td>
+                <td>
+                    <%= credit.approval %>
+                </td>
+                
+                
+            </tr>
+            <% end %>
+    </tbody>
+</table>
+
+<h1>Loans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Portion</th>
+      <th>Tax</th>
+      <th>User</th>
+      <th>Credit</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= format_currency(loan.value) %></td>
+        <td><%= loan.portion %>X</td>
+        <td><%= loan.tax %></td>
+        <td><%= loan.user_id %></td>
+        <td><%= loan.credit_id %></td>
+        <td><%= format_currency(loan.total) %></td>
+        <td><%= link_to 'Visualizar Parcelas', loan %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
