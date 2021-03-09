@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= format_currency(@loan.value) %>
+</p>
+
+<p>
+  <strong>Portion:</strong>
+  <%= @loan.portion %>
+</p>
+
+<p>
+  <strong>Tax:</strong>
+  <%= @loan.tax %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @loan.user_id %>
+</p>
+
+<p>
+  <strong>Credit:</strong>
+  <%= @loan.credit_id %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= format_currency(@loan.total) %>
+</p>
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>
