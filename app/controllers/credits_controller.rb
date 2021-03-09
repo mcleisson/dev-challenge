@@ -22,7 +22,7 @@ class CreditsController < ApplicationController
   # POST /credits or /credits.json
   def create
     @credit = Credit.new(credit_params)
-
+    @credit.user_id = current_user.id if current_user
     respond_to do |format|
       if @credit.save
         format.html { redirect_to @credit, notice: "Credit was successfully created." }
@@ -59,7 +59,7 @@ class CreditsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_credit
-      @credit = Credit.find(params[:id])
+      @credit = Credit.find(current_user.id)
     end
 
     # Only allow a list of trusted parameters through.
