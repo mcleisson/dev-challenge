@@ -1,3 +1,5 @@
+<%=render 'layouts/partials/menu' %>
+
 <%= form_with(model: credit, local: true) do |form| %>
   <% if credit.errors.any? %>
     <div id="error_explanation">
@@ -15,17 +17,7 @@
     <%= form.label :value %>
     <%= form.text_field :value %>
   </div>
-
-  <div class="field">
-    <%= form.label :approval %>
-    <%= form.check_box :approval %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
+ 
   <div class="actions">
     <%= form.submit %>
   </div>
